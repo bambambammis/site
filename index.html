@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>👑 STRV103 // GOD-LIKE OVERLOAD 👑</title>
+    <title>STRV103</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Montserrat:wght@400;900&display=swap');
 
@@ -20,100 +21,67 @@
         body { background-color: var(--bg); color: #fff; font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
         body::-webkit-scrollbar { display: none; }
 
-        /* КУРСОР */
-        #cursor-dot { width: 8px; height: 8px; background: #fff; position: fixed; border-radius: 50%; z-index: 100000; pointer-events: none; }
-        #cursor-aura { width: 40px; height: 40px; border: 2px solid var(--gold-solid); position: fixed; border-radius: 50%; z-index: 99999; pointer-events: none; transition: transform 0.15s ease-out; }
+        /* КУРСОР - Только точка */
+        #cursor-dot { width: 8px; height: 8px; background: #fff; position: fixed; border-radius: 50%; z-index: 100000; pointer-events: none; transition: transform 0.05s linear; }
         
-        #particles-js { position: fixed; width: 100%; height: 100%; z-index: 0; top: 0; left: 0; background-color: #030303; }
+        /* ФОН */
+        #particles-js { position: fixed; width: 100vw; height: 100vh; z-index: 0; top: 0; left: 0; background-color: #030303; }
 
         /* HERO SECTION */
         .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; position: relative; z-index: 1; }
         .gold-glitch { font-family: 'Orbitron', sans-serif; font-size: clamp(3.5rem, 13vw, 10rem); font-weight: 900; background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.5)); animation: float 4s ease-in-out infinite alternate; }
         @keyframes float { from { transform: translateY(0); } to { transform: translateY(-20px); } }
 
-        /* АНИМАЦИЯ КНОПКИ ПРИ НАВЕДЕНИИ */
         button.void-btn { 
-            background: var(--gold); 
-            border: none; 
-            padding: 18px 54px; 
-            font-family: 'Orbitron'; 
-            font-weight: 900; 
-            border-radius: 100px; 
-            margin-top: 25px; 
-            transition: 0.3s ease; 
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
-            position: relative;
+            background: var(--gold); border: none; padding: 18px 54px; font-family: 'Orbitron'; font-weight: 900; border-radius: 100px; margin-top: 25px; transition: 0.3s ease; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); position: relative;
         }
-        button.void-btn:hover {
-            animation: pulse-glow 1.5s infinite;
-            transform: scale(1.05);
-        }
-        @keyframes pulse-glow {
-            0% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
-            50% { box-shadow: 0 0 50px rgba(212, 175, 55, 0.9); }
-            100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
-        }
-        .gemini-tag { font-size: 0.75rem; letter-spacing: 4px; opacity: 0.6; margin-top: 25px; font-weight: 900; text-transform: uppercase; color: #fff; }
-
-        .container { max-width: 1260px; margin: 0 auto; padding: 80px 20px; position: relative; z-index: 1; }
-        .glass-box { background: var(--glass); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 45px; padding: 72px; margin-bottom: 80px; backdrop-filter: blur(20px); }
+        button.void-btn:hover { animation: pulse-glow 1.5s infinite; transform: scale(1.05); }
+        @keyframes pulse-glow { 0% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); } 50% { box-shadow: 0 0 50px rgba(212, 175, 55, 0.9); } 100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); } }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; position: relative; z-index: 1; }
+        .glass-box { background: var(--glass); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 35px; padding: 40px 50px; margin-bottom: 50px; backdrop-filter: blur(20px); }
 
         /* СОЦСЕТИ */
-        .social-plates { display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 35px; }
+        .social-plates { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin-bottom: 20px; width: 100%; }
         .social-plate { 
-            display: flex; 
-            align-items: center; 
-            justify-content: center;
-            gap: 10px; 
-            background: rgba(255, 255, 255, 0.03); 
-            border: 1px solid rgba(212, 175, 55, 0.2); 
-            padding: 12px 22px; 
-            border-radius: 10px; 
-            color: #fff; 
-            text-decoration: none; 
-            font-family: 'Orbitron'; 
-            font-size: 0.75rem; 
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            font-weight: 900; 
-            min-width: 140px;
+            display: flex; align-items: center; justify-content: center; gap: 8px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(212, 175, 55, 0.2); padding: 12px; border-radius: 12px; color: #fff; text-decoration: none; font-family: 'Orbitron'; font-size: 0.75rem; transition: 0.3s; font-weight: 900; 
         }
-        .social-plate:hover { 
-            background: var(--gold-solid); 
-            color: #000; 
-            transform: translateY(-5px); 
-            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
-        }
+        .social-plate:hover { background: var(--gold-solid); color: #000; transform: translateY(-3px); }
+        .social-plate i, .social-plate .iconify { font-size: 1.2rem !important; }
 
-        /* ИГРЫ (БЕЗ ПЛАШЕК) */
-        .game-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-top: 30px; }
-        .game-item { 
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(212, 175, 55, 0.1);
-            padding: 22px; 
-            border-left: 4px solid rgba(212, 175, 55, 0.3); 
-            transition: 0.3s; 
+        /* КНОПКА STORIES - Выделенная */
+        .stories-btn {
+            display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; background: rgba(212, 175, 55, 0.05); border: 1px solid var(--gold-solid); padding: 14px; border-radius: 12px; color: var(--gold-solid); text-decoration: none; font-family: 'Orbitron'; font-size: 1rem; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 25px; transition: 0.3s;
         }
-        .game-item:hover { border-left-color: var(--gold-solid); background: rgba(212, 175, 55, 0.05); transform: translateX(10px); }
-        .game-item h3 { font-family: 'Orbitron'; font-weight: 900; font-size: 1.2rem; letter-spacing: 1px; }
+        .stories-btn:hover { background: var(--gold-solid); color: #000; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
 
-        /* ПЛЕЕР */
-        .luxury-player { display: grid; grid-template-columns: 315px 1fr; gap: 70px; align-items: center; }
-        .disc-wrap { position: relative; width: 315px; height: 315px; }
-        .disc { width: 100%; height: 100%; background: url('ava.jpg') center/cover; border-radius: 50%; border: 10px solid #111; box-shadow: 0 0 50px var(--gold-solid); animation: rotateDisc 10s linear infinite; animation-play-state: paused; }
+        /* ПЛЕЕР (Ужат) */
+        .luxury-player { display: grid; grid-template-columns: 240px 1fr; gap: 40px; align-items: center; }
+        .disc-wrap { position: relative; width: 240px; height: 240px; }
+        .disc { width: 100%; height: 100%; background: url('ava.jpg') center/cover; border-radius: 50%; border: 8px solid #111; box-shadow: 0 0 30px var(--gold-solid); animation: rotateDisc 10s linear infinite; animation-play-state: paused; }
         @keyframes rotateDisc { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        .profile-name { font-size: 3.6rem; font-family: 'Orbitron'; background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 25px; font-weight: 900; line-height: 1; }
-
-        .term-container { background: #000; border: 1px solid var(--gold-solid); border-radius: 20px; padding: 25px; font-family: 'Courier New', monospace; color: var(--gold-solid); height: 220px; overflow: hidden; font-weight: 900; }
-        .luxury-ticker { position: fixed; bottom: 0; width: 100%; background: var(--gold); color: #000; padding: 10px; font-weight: 900; z-index: 1000; font-size: 1rem; text-transform: uppercase; }
         
-        .reveal { opacity: 0; transform: translateY(50px); transition: 1s ease-out; }
+        .profile-name { font-size: 2.8rem; font-family: 'Orbitron'; background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px; font-weight: 900; line-height: 1; }
+
+        /* БЛОК ПЕСНИ (Ужат) */
+        .song-title { font-size: 1.5rem; font-weight: 900; margin-bottom: 15px; color: #eee; }
+        .controls-row { display: flex; gap: 20px; align-items: center; margin-top: 10px; }
+        
+        .game-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; margin-top: 25px; }
+        .game-item { background: rgba(255,255,255,0.02); border: 1px solid rgba(212, 175, 55, 0.1); padding: 18px; border-left: 4px solid rgba(212, 175, 55, 0.3); }
+        .game-item:hover { border-left-color: var(--gold-solid); }
+        .game-item h3 { font-family: 'Orbitron'; font-weight: 900; font-size: 1.1rem; }
+
+        .term-container { background: #000; border: 1px solid var(--gold-solid); border-radius: 15px; padding: 20px; font-family: 'Courier New', monospace; color: var(--gold-solid); height: 180px; overflow: hidden; font-weight: 900; font-size: 0.9rem; }
+        .luxury-ticker { position: fixed; bottom: 0; width: 100%; background: var(--gold); color: #000; padding: 8px; font-weight: 900; z-index: 1000; font-size: 0.9rem; text-transform: uppercase; }
+        
+        .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        @media (max-width: 1000px) {
-            .luxury-player { grid-template-columns: 1fr; text-align: center; gap: 40px; }
-            .disc-wrap { margin: 0 auto; width: 250px; height: 250px; }
-            .social-plates { justify-content: center; }
-            .glass-box { padding: 40px 20px; }
+        @media (max-width: 900px) {
+            .luxury-player { grid-template-columns: 1fr; text-align: center; gap: 30px; }
+            .disc-wrap { margin: 0 auto; width: 200px; height: 200px; }
+            .glass-box { padding: 30px 20px; }
         }
     </style>
 </head>
@@ -121,17 +89,15 @@
 
     <div id="particles-js"></div>
     <div id="cursor-dot"></div>
-    <div id="cursor-aura"></div>
 
     <section class="hero">
         <h1 class="gold-glitch" data-tilt>STRV103</h1>
-        <p style="letter-spacing: 15px; opacity: 0.8; margin-top: -20px; font-weight: 900;">SYSTEMS_STABLE_V3.0</p>
+        <p style="letter-spacing: 3px; opacity: 0.8; margin-top: -10px; font-weight: 900; font-size: 0.8rem;">Modified by Gemini AI</p>
         <button class="void-btn" onclick="document.getElementById('content').scrollIntoView()">ENTER THE VOID</button>
-        <p class="gemini-tag">Modified by Gemini AI // 2026</p>
     </section>
 
     <div class="luxury-ticker">
-        <marquee scrollamount="15">🌟 WAR THUNDER GRIND... 🌟 JORDAN MILLER - MAFIA 🌟 NO VPN = NO LAG 🌟 ROBLOX FIXING... 🌟</marquee>
+        <marquee scrollamount="12">🌟 WAR THUNDER GRIND... 🌟 JORDAN MILLER - MAFIA 🌟 NO VPN = NO LAG 🌟 ROBLOX FIXING... 🌟 SYSTEM OVERRIDE... 🌟 MATRIX SECURE 🌟 CYBERPUNK 2077 VIBES 🌟</marquee>
     </div>
 
     <div class="container" id="content">
@@ -141,17 +107,26 @@
                 <div class="disc-wrap"><div class="disc" id="disc"></div></div>
                 <div class="player-info">
                     <div class="profile-name">STRV103</div>
+                    
                     <div class="social-plates">
-                        <a href="#" class="social-plate"><i class="fab fa-telegram"></i> TELEGRAM</a>
-                        <a href="#" class="social-plate"><i class="fab fa-discord"></i> DISCORD</a>
-                        <a href="#" class="social-plate"><i class="fab fa-steam"></i> STEAM</a>
+                        <a href="https://t.me/твой_профиль" target="_blank" class="social-plate"><i class="fab fa-telegram"></i> TELEGRAM</a>
+                        <a href="#" class="social-plate" onclick="copyDiscord(event, this)"><i class="fab fa-discord"></i> DISCORD</a>
+                        <a href="https://steamcommunity.com/id/твой_id" target="_blank" class="social-plate"><i class="fab fa-steam"></i> STEAM</a>
+                        <a href="https://www.roblox.com/users/твой_id/profile" target="_blank" class="social-plate"><span class="iconify" data-icon="simple-icons:roblox"></span> ROBLOX</a>
+                        <a href="https://www.tiktok.com/@твой_тикток" target="_blank" class="social-plate"><i class="fab fa-tiktok"></i> TIKTOK</a>
+                        <a href="https://account.xbox.com/ru-ru/profile?gamertag=твой_тег" target="_blank" class="social-plate"><span class="iconify" data-icon="simple-icons:xbox"></span> XBOX</a>
                     </div>
-                    <h4 style="color: var(--gold-solid); font-weight: 900; margin-bottom: 12px; letter-spacing: 2px;">NOW PLAYING</h4>
-                    <div style="font-size: 2rem; font-weight: 900; margin-bottom: 25px;">JORDAN MILLER — MAFIA</div>
-                    <input type="range" id="seek" style="width: 100%; accent-color: var(--gold-solid); margin-bottom: 18px;" value="0">
-                    <div style="display: flex; gap: 25px; align-items: center;">
-                        <i class="fas fa-play" id="play" style="font-size: 2.5rem; color: #fff; cursor: pointer !important;"></i>
-                        <div style="font-size: 1.2rem; font-weight: 900;"><span id="cur">0:00</span> / <span id="dur">3:42</span></div>
+
+                    <a href="https://t.me/твой_канал_stories" target="_blank" class="stories-btn">
+                        <i class="fab fa-telegram"></i> strv103's Stories
+                    </a>
+
+                    <h4 style="color: var(--gold-solid); font-weight: 900; font-size: 0.7rem; letter-spacing: 2px; margin-bottom: 5px;">NOW PLAYING</h4>
+                    <div class="song-title">LXMINAL/Enmity — Cool For The Summer - Hardstyle</div>
+                    <input type="range" id="seek" style="width: 100%; accent-color: var(--gold-solid); margin-bottom: 10px;" value="0">
+                    <div class="controls-row">
+                        <i class="fas fa-play" id="play" style="font-size: 1.8rem; color: #fff; cursor: pointer !important;"></i>
+                        <div style="font-size: 1rem; font-weight: 900; opacity: 0.8;"><span id="cur">0:00</span> / <span id="dur">3:42</span></div>
                     </div>
                     <audio id="audio" src="music.mp3"></audio>
                 </div>
@@ -159,9 +134,15 @@
         </div>
 
         <div class="glass-box reveal">
-            <h2 style="font-family: 'Montserrat', sans-serif; font-weight: 900; background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px; letter-spacing: 2px; font-size: 2.5rem;">ЛЮБИМЫЕ ИГРЫ</h2>
-            <p style="color: var(--gold-solid); font-size: 0.8rem; margin-bottom: 30px; letter-spacing: 2px; font-family: 'Orbitron';">DATABASE_FAVORITE_GAMES.db</p>
-            
+            <h2 style="font-weight: 900; background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px; letter-spacing: 1px; font-size: 2rem;">CALLSIGN: STRV 103</h2>
+            <p style="font-size: 1rem; line-height: 1.6; opacity: 0.85;">
+                Никнейм берет свое начало от легендарного <strong>Stridsvagn 103 (Strv 103)</strong> — шведского основного боевого танка, также известного как «S-танк». 
+                Его главная и уникальная особенность заключается в безбашенной компоновке. Орудие жестко закреплено в корпусе, а наведение по горизонтали и вертикали осуществляется поворотом всего танка и изменением наклона его гидропневматической подвески.
+            </p>
+        </div>
+
+        <div class="glass-box reveal">
+            <h2 style="font-weight: 900; background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px; font-size: 2rem;">ЛЮБИМЫЕ ИГРЫ</h2>
             <div class="game-grid">
                 <div class="game-item"><h3>WAR THUNDER</h3></div>
                 <div class="game-item"><h3>CYBERPUNK 2077</h3></div>
@@ -180,9 +161,8 @@
         </div>
     </div>
 
-    <footer style="padding: 70px; text-align: center; border-top: 1px solid rgba(212, 175, 55, 0.2);">
-        <h2 class="gold-glitch" style="font-size: 2rem;">VOID_WALKER</h2>
-        <p style="margin-top: 15px; opacity: 0.6; letter-spacing: 5px; font-weight: 900;">STRV103 // 2026</p>
+    <footer style="padding: 40px; text-align: center; border-top: 1px solid rgba(212, 175, 55, 0.1);">
+        <p style="opacity: 0.5; letter-spacing: 3px; font-weight: 900; font-size: 0.7rem;">STRV103 // 2026</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
@@ -190,31 +170,22 @@
     <script>
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
                 "color": { "value": "#d4af37" },
-                "opacity": { "value": 0.5, "random": true },
-                "size": { "value": 3, "random": true },
-                "line_linked": { "enable": true, "distance": 150, "color": "#d4af37", "opacity": 0.3, "width": 1 },
-                "move": { "enable": true, "speed": 1.5, "random": true }
+                "opacity": { "value": 0.4, "random": true },
+                "size": { "value": 2, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#d4af37", "opacity": 0.2, "width": 1 },
+                "move": { "enable": true, "speed": 1, "random": true }
             },
             "interactivity": { "events": { "onhover": { "enable": true, "mode": "grab" } } },
             "retina_detect": true
         });
 
+        // Курсор (точка)
         const dot = document.getElementById('cursor-dot');
-        const aura = document.getElementById('cursor-aura');
-        let mouseX = 0, mouseY = 0, auraX = 0, auraY = 0;
         document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX; mouseY = e.clientY;
-            dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+            dot.style.transform = `translate(${e.clientX - 4}px, ${e.clientY - 4}px)`;
         });
-        function animateCursor() {
-            auraX += (mouseX - auraX - 20) * 0.15;
-            auraY += (mouseY - auraY - 20) * 0.15;
-            aura.style.transform = `translate(${auraX}px, ${auraY}px)`;
-            requestAnimationFrame(animateCursor);
-        }
-        animateCursor();
 
         const audio = document.getElementById('audio');
         const playBtn = document.getElementById('play');
@@ -237,18 +208,27 @@
         };
         seek.oninput = () => { audio.currentTime = (seek.value * audio.duration) / 100; };
 
+        function copyDiscord(e, el) {
+            e.preventDefault();
+            navigator.clipboard.writeText("xenomorphon");
+            const originalHTML = el.innerHTML;
+            el.innerHTML = '<i class="fas fa-check"></i> COPIED!';
+            setTimeout(() => { el.innerHTML = originalHTML; }, 2000);
+        }
+
+        // Терминал
         setInterval(() => {
-            const logs = ["> system_check: OK", "> session_active", "> gemini_assistant: monitoring"];
+            const logs = ["> system_check: OK", "> session_active", "> gemini_assistant: monitoring", "> connection_secured: TRUE", "> void_protocol: initiated", "> threat_level: ZERO"];
             document.getElementById('term').innerHTML += logs[Math.floor(Math.random()*logs.length)] + "<br>";
             document.getElementById('term').scrollTop = document.getElementById('term').scrollHeight;
-        }, 3000);
+        }, 2500);
 
         window.addEventListener('scroll', () => {
             document.querySelectorAll('.reveal').forEach(el => {
                 if(el.getBoundingClientRect().top < window.innerHeight - 50) el.classList.add('active');
             });
         });
-        VanillaTilt.init(document.querySelectorAll("[data-tilt]"), { max: 5, speed: 400 });
+        VanillaTilt.init(document.querySelectorAll(".gold-glitch"), { max: 5, speed: 400 });
     </script>
 </body>
 </html>
