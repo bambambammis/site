@@ -82,9 +82,7 @@
         .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* =========================================
-           АДАПТИВНОСТЬ ДЛЯ ПЛАНШЕТОВ И СМАРТФОНОВ
-           ========================================= */
+        
         @media (max-width: 900px) {
             .luxury-player { grid-template-columns: 1fr; text-align: center; gap: 30px; }
             .disc-wrap { margin: 0 auto; width: 200px; height: 200px; }
@@ -95,19 +93,19 @@
             .glass-box { padding: 30px 20px; border-radius: 25px; }
             button.void-btn { padding: 15px 30px; }
             
-            /* Стек для таблицы на мобильных устройствах */
+            
             .spec-table, .spec-table tbody, .spec-row, .spec-label, .spec-value { display: block; width: 100%; text-align: center; }
             .spec-row { padding: 12px 0; }
             .spec-label { padding: 0 0 5px 0; font-size: 1rem; }
             .spec-value { padding: 0; }
 
-            /* Корректировка сеток для маленьких экранов */
+            
             .social-plates { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); }
             .wt-grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
             .game-grid { grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); }
         }
 
-        /* Отключение кастомного курсора на сенсорных экранах (чтобы не баговало выделение) */
+      
         @media (pointer: coarse) {
             * { cursor: auto !important; }
             #cursor-dot { display: none !important; }
@@ -191,7 +189,7 @@
         <div class="glass-box reveal">
             <h2 style="font-weight: 900; background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px; font-size: clamp(1.5rem, 4vw, 2rem); font-family: 'Orbitron';">WAR THUNDER ARMORY</h2>
             <div class="wt-grid">
-                <div class="wt-nation"><span class="iconify wt-flag" data-icon="emojione:flag-for-united-states"></span><span class="wt-name">USA</span><span class="wt-br">6.0</span></div>
+                <div class="wt-nation"><span class="iconify wt-flag" data-icon="emojione:flag-for-united-states"></span><span class="wt-name">USA</span><span class="wt-br">7.3</span></div>
                 <div class="wt-nation"><span class="iconify wt-flag" data-icon="emojione:flag-for-germany"></span><span class="wt-name">GERMANY</span><span class="wt-br">6.7</span></div>
                 <div class="wt-nation"><span class="iconify wt-flag" data-icon="emojione:flag-for-russia"></span><span class="wt-name">USSR</span><span class="wt-br">12.0</span></div>
                 <div class="wt-nation"><span class="iconify wt-flag" data-icon="emojione:flag-for-united-kingdom"></span><span class="wt-name">UK</span><span class="wt-br">10.7</span></div>
